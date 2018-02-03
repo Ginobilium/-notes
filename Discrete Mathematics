@@ -1,0 +1,110 @@
+\documentclass{book}
+\usepackage{ctex}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\newcommand{\Eqv}{\Leftrightarrow}
+\newcommand{\eqv}{\leftrightarrow}
+\newcommand{\To}{\Rightarrow}
+\newcommand{\A}{\forall}
+\newcommand{\E}{\exists}
+
+\begin{document}
+\chapter{集合}
+\section{命题公式}
+\subsection{连接词}
+$
+\neg 否定连接词
+\land 合取
+\lor 析取
+\to 蕴含(可看作小于等于)
+\leftrightarrow 等价
+$
+\subsection{命题公式}
+只有有限次运用上述运算符的符号串才是公式\\
+例子：\\
+$\neg\neg\neg p,\\
+p\to (q\to r)\\
+(p\to (q\to r))\land p\land q\to r
+$
+可满足式，矛盾式(永假式)，重言式(永真式)
+\section{等值式}
+\subsection{等值式}
+等值式$A\Leftrightarrow B$: $A\leftrightarrow B$是永真式\\
+$p\to q \Leftrightarrow \neg p \lor q$
+\subsection{基本等值式}
+\begin{enumerate}
+\item 幂等律 $A\Leftrightarrow A\lor A$$A \Leftrightarrow A\land A$
+\item 交换律
+\item 结合律
+\item 分配律
+\item 德摩根律 $\neg (A\lor B) \Leftrightarrow \neg A\land \neg B$\\
+$\neg (A \land B) \Eqv \neg A \land \neg B$
+\item 吸收律 $A\lor (A\land B) \Eqv A$\\
+$A \land (A\lor B) \Eqv A$
+\item 零律 $A\lor 1\Eqv 1, A\land 0\Eqv 0$
+\item 同一律 $A\lor 0\Eqv A, A\land 1\Eqv A$
+\item 排中律 $A\lor \neg A \Eqv 1$
+\item 矛盾律 $A\land \neg A\Eqv 0$
+对偶原理:$\lor - \land$互换$0-1$互换不变
+\item 双重否定律 $\neg\neg A\Eqv A$
+\item 蕴涵等值式 $A\to B \Eqv \neg A\lor B$
+\item 等价等值式 $A\eqv B\Eqv (A\to B)\land (B\to A)$ 
+\item 等价否定等值式 $A\eqv B \Eqv \neg A\eqv \neg B$
+\item 假言易位 $A\to B \Eqv \neg B \to \neg A$
+\item 归谬论 $(A\to B)\land (A\to \neg B)\Eqv \neg A$
+\end{enumerate}
+\subsection{等值演算}
+\begin{align*}
+p\to (q\to r)\Eqv p\to (\neg q\lor r)\\
+\Eqv \neg p\lor(\neg q\lor r)\\
+\Eqv (\neg p \lor \neg q)\lor r\\
+\Eqv \neg(p\land q)\lor r\\
+\Eqv (p\land q)\to r\\
+\end{align*}
+\section{命题逻辑推理}
+\subsection{推理的形式结构}
+$(A_1\land A_2\land\dots\land A_k)\to B$
+\subsection{重要的推理定律}
+推理定律 $A\To B:A\to B$是永真式
+\begin{enumerate}
+\item 附加律 $A\To (A\lor B)$
+\item 化简律$(A\land B)\To A, (A\land B)\To B$
+\item 假言推理 $(A\to B)\land A\To B$
+\item 拒取式 $(A\to B)\land \neg B\To \neg A$
+\item 析取三段论 $(A\lor B)\land \neg A\To B, (A\lor B)\land \neg B\To A$
+\item 假言三段论 $(A\to B)\land (B\to C)\To (A\to C)$
+\item 等价三段论 $(A\eqv B)\land (B\eqv C)\To (A\eqv C)$
+\item 构造性两难 $(A\to B)\land (C\to D)\land (A\lor C)\To (B\lor D)$
+\end{enumerate}
+\subsection{判断推理正确的方法}
+前提：$p\to (q\to r), p, q$\\
+结论：$r$\\
+方法一：推理的形式结构(形式结构是永真式)\\
+\begin{align*}
+(p\to (q\to r))\land p \land q\to r\\
+\Eqv (\neg p\lor (\neg q\lor r))\land p\land q\to r\\
+\Eqv ((\neg p \land p)\lor ((\neg q\lor r)\land p))\land q\to r\\
+\Eqv ((\neg q\lor r)\land q)\land p\to r\\
+\Eqv ((\neg q\land q)\lor (r\land q))\land p\to r\\
+\Eqv (r\land q\land p)\to r\\
+\Eqv \neg (r\land q\land p)\lor r\\
+\Eqv \neg r\lor \neg q\lor \neg p\lor r\\
+\Eqv (\neg r\lor r)\lor \neg q\lor\neg p\\
+\Eqv 1
+\end{align*}
+方法二：从前提推演结论\\
+\begin{align*}
+(p\to (q\to r))\land p\land q\\
+\Eqv ((p\to (q\to r)\land p)\land q\\
+\To (q\to r)\land q\\
+\To r
+\end{align*}
+\section{一阶谓词逻辑基本概念与命题符号化}
+个体，个体域，全总个体域\\
+个体常元：$a,b,c,\dots$;个体变元：$x,y,z,\dots$\\
+谓词：$F,G,H,\dots$; 量词：$\A, \E$\\
+$\A x(F(x)\to G(x))$
+
+
+\end{document}
