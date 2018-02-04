@@ -1,0 +1,127 @@
+\ifx\allfiles\undefined
+\documentclass{book}
+\usepackage{ctex}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[mathscr]{eucal}
+\newcommand{\Eqv}{\Leftrightarrow}
+\newcommand{\eqv}{\leftrightarrow}
+\newcommand{\To}{\Rightarrow}
+\newcommand{\A}{\forall}
+\newcommand{\E}{\exists}
+\newcommand{\no}{\varnothing}
+\newcommand{\scr}[1]{\mathscr{#1}}
+\newcommand{\nsubset}{\not\subset}
+\begin{document}
+\else
+\chapter{集合的概念与运算}
+\fi
+\section{集合的概念}
+\noindent
+集合在朴素集合论中不能精确定义\\
+一些对象的整体就构成集合\\
+\subsection{属于}
+$a\in A\quad a\notin A$\\
+\subsection{罗素悖论}
+\noindent
+$X=\{x|x\ne \no\}, \{a\}\ne\no, \{a\}\in X, X\in X$\\
+$\no\notin\no, \{a\}\notin \{a\}, \E X(X\notin X)$\\
+$S=\{X|X\notin X\}, S\in S?$\\
+集合论公理(ZFC):
+\begin{enumerate}
+    \item{外延公理} 所含元素相同的两个集合是相等的
+    \item{空集存在公理} 空集合存在
+    \item{无序对公理} 对任意集合$a,b$, $\{a,b\}$存在
+    \item{并集公理} 对任意集合$\scr{A}, \cup \scr{A}$存在
+    \item{幂集公理} 对任意集合$A, \scr{P}(A)$存在
+    \item{联集公理}
+\end{enumerate}
+\subsection{多重集}
+允许元素多次重复出现的集合（元素的重复度）
+\subsection{特征函数法}
+集合$A$的特征函数是$\chi_A(x)$:
+$$
+\chi_A(x)=
+    \begin{cases}
+        1, \mbox{若}x\in A;\\
+        0, \mbox{若}x\notin A.
+    \end{cases}
+$$
+对多重集，$\chi_A(x)=x$在$A$中的重复度
+\section{集合之间的关系}
+\subsection{子集}
+\noindent
+$B\subseteq A\Eqv \A x(x\in B\to x\in A)$\\
+$B\nsubseteq A\Eqv \E x(x\in B\land x\notin A)\quad \mbox{即}(\neg(B\subseteq A))$
+\subsection{相等}
+$A=B\Eqv A\subseteq B\land B\subseteq A\Eqv \A x(x\in A\eqv x\in B)$
+\subsection{$\subseteq$的性质}
+\noindent
+$A\subseteq A$\\
+若$A\subseteq B$,且$A\neq B$,则$B\nsubseteq A$\\
+若$A\subseteq B$,且$B\subseteq C$,则$A\subseteq C$
+\subsection{真子集}
+$A\subset B\Eqv A\subseteq B\land A\neq B$
+\subsection{$\subset$的性质}
+\noindent
+$A\nsubset A$\\
+若$A\subset B$,则$B\nsubset A$\\
+若$A\subset B, B\subset C$，则$A\subset C$
+\subsection{空集}
+$\no$\\
+定理一：$\no\subseteq A\Eqv \A x(x\in\no\to x\in A)\Eqv\A x(0\to x\in A)\Eqv 1$\\
+推论：空集唯一\\
+设$\no_1$与$\no_2$都是空集，则\\
+$\no_1\subseteq\no_2\land\no_2\subseteq\no_1\Eqv\no_1=\no_2$
+\subsection{全集}
+全集：如果限定所讨论的集合都是某个集合的子集，则称这个集合是全集，记作$E$
+\subsection{幂集}
+$A$的全体子集组成的集合$\scr{P}(A)$\\
+$\scr{P}(A)=\{X\mid X\subseteq A\}$\\
+$x\in\scr{P}(A)\Eqv x\subseteq A$
+\subsection{$n$元集}
+$A$是$n$元集$\Eqv x\subseteq A$
+\subsection{集族}
+由集合构成的集合
+\subsection{指标集}
+设$\scr{A}$是集族，若$\scr{A}=\{A_\alpha\mid\alpha\in S\}$则称$S$为$\scr{A}$的指标集\\
+也记作$\scr{A}=\{A_\alpha\mid\alpha\in S\}=\{A_\alpha\}_{\alpha\in S}
+\section{集合的运算}
+\subsection{并集}
+\noindent
+并集：\\
+$A\cup B=\{x|(x\in A)\lor(x\in B)\}$\\
+$x\in A\cup B\Eqv (x\in A)\lor(x\in B)$\\
+初级并：\\
+$A_1\cup A_2\cup\dots\cup A_n=\{x\mid\E i(1\le i\le n\lor x\in A_i)\}$
+\begin{align*}
+\bigcup_{i=1}^{n} A_i=A_1\cup A_2\cup\dots\cup A_n\\
+\bigcup_{i=1}^{\infty}=A_1\cup A_2\cup\dots
+\end{align*}
+\subsection{交集}
+\subsection{不相交}
+$A\cap B=\no$\\
+互不相交
+\subsection{相对补集}
+$A-B=\{x\mid (x\in A)\land (x\notin B)\}$
+\subsection{对称差}
+$A\oplus B=\{x\mid (x\in A\land x\notin B)\lor (x\notin A\land x\in B)\}$\\
+$A\oplus B=(A-B)\cup (B-A)=(A\cup B)-(A\cap B)$
+\subsection{绝对补}
+$\sim A=E-A$
+\subsection{广义并}
+设$\scr{A}$是集族，其所有集合的元素的全体，称为$\scr{A}$的广义并，记作$\cup\scr{A}$\\
+$\cup\scr{A}=\{x\mid \E z(x\in z\land z\in\scr{A})\}=\cup_{\alpha\in S}A_\alpha$
+\subsection{广义交}
+$\cup\scr{A}=\{x\mid \A z(x\in z\to z\in\scr{A})\}$
+\subsection{集合运算的优先级}
+\noindent
+第一级：补$\sim$，幂$\scr{P}$\\
+第二级：广义并$\cup$，广义交$\cap$\\
+第三级：并$\cup$，交$\cap$，相对补$-$，对称差$\oplus$
+\section{容斥原理}
+
+\ifx\allfiles\undefined
+\end{document}
+\fi
+
