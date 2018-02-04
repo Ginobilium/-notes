@@ -104,7 +104,71 @@ $(A_1\land A_2\land\dots\land A_k)\to B$
 个体，个体域，全总个体域\\
 个体常元：$a,b,c,\dots$;个体变元：$x,y,z,\dots$\\
 谓词：$F,G,H,\dots$; 量词：$\A, \E$\\
-$\A x(F(x)\to G(x))$
-
-
+$\A x(F(x)\to G(x))$\\
+$\E x(F(x)\land G(x))$\\
+例子：\\
+\begin{enumerate}
+    \item{人都吃饭}
+        $F(x):x$是人，$G(x):x$吃饭 $\A x(F(x)\to G(x))$或(使用全体人作为全总个体域)$\A xG(x)$
+    \item{有人喜欢吃糖}
+        $\E x(F(x)\land G(x))$
+    \item{火车都比汽车快}
+        $\A x(F(x)\to \A y(G(y)\to H(x,y)))$\\
+    $F(x):x$是火车 $G(x):x$是汽车 $H(x,y):x$比$y$快
+    \item{有的汽车比所有火车都快}
+        $\E x(G(x)\land \A y(F(y)\to H(x,y)))$
+\end{enumerate}
+\section{一阶谓词逻辑公式及其分类}
+指导变元，辖域，约束出现，自由出现\\
+$\A x(F(x)\to \E y(G(y)\land H(x,y,z)))$\\
+解释：全总个体域，$F(x):x$是实数，$G(x):x$是整数，$H(x,y,z):x+y=z$\\
+永真式，永假式，可满足式
+\section{一阶谓词逻辑等值式与基本等值式}
+等值式$A\Eqv B: A\eqv B$为永真式
+\subsection{有限个体域消去量词}
+有限个体域 $D=\{a_1,a_2,\dots,a_n\}$\\
+$\A xA(x)\Eqv A(a_1)\land A(a_2)\land \dots \land A(a_n)$\\
+$\E xA(x)\Eqv A(a_1)\lor A(a_2)\lor \dots \lor A(a_n)$\\
+\subsection{量词否定}
+\begin{enumerate}
+    \item $\neg\A xA(x)\Eqv \E x\neg A(x)$\\
+        $\neg\A xA(x)\eqv\E x\neg A(x)$是永真式\\
+        在所有解释下，左右同真假
+    \item $\neg\E xA(x)\Eqv\A x\neg A(x)$
+\end{enumerate}
+\subsection{量词辖域收缩与扩张}
+$B$中不含$x$:
+\begin{enumerate}
+    \item $\A x(A(x)\lor B)\Eqv \A xA(x)\lor B$
+    \item $\A x(A(x)\land B)\Eqv \A xA(x)\land B$
+    \item $\A x(A(x)\to B)\Eqv \E xA(x)\to B$\\
+        $\A x(A(x)\to B)\Eqv \A x(\neg A(x)\lor B)\Eqv  \A x\neg A(x)\lor B\Eqv\neg\E xA(x)\lor B\Eqv \E xA(x)\to B$
+    \item $\A x(B\to A(x))\Eqv B\to \A xA(x)$
+    \item $\E x(A(x)\lor B)\Eqv\E xA(x)\lor B$
+    \item $\E x(A(x)\land B)\Eqv \E xA(x)\land B$
+    \item $\E x(A(x)\to B)\Eqv \A xA(x)\to B$
+    \item $\E x(B\to A(x))\Eqv B\to \E xA(x)$
+\end{enumerate}
+\subsection{量词分配}
+\noindent
+$\A x(A(x)\land B(x))\Eqv \A xA(x)\land \A xB(x)$\\
+$\E x(A(x)\lor B(x))\Eqv \E xA(x)\lor \E xB(x)$
+\section{前束范式}
+\begin{align*}
+    &\A xF(x)\lor\neg\E xG(x,y)\\
+    \Eqv& \A xF(x)\lor \A x\neg G(x,y)\\
+    \Eqv& \A xF(x)\lor\A z\neg G(z,y) (\mbox{换名规则})\\
+    \Eqv& \A x(F(x)\lor \A z\neg G(z,y)) (\mbox{辖域扩张})\\
+    \Eqv& \A x\A z(F(x)\lor\neg G(z,y)) (\mbox{前束范式})\\
+    \Eqv& \A x\A z(G(z,y)\to F(x))
+\end{align*}
+\section{重要的推理定律}
+\begin{enumerate}
+    \item $\A xA(x)\lor \A xB(x)\To \A x(A(x)\lor B(x))$
+    \item $\E x(A(x)\land B(x))\To \E xA(x)\land \E xB(x)$
+    \item $\A x(A(x)\to B(x))\To \A xA(x)\to \A xB(x)$
+    \item $\A x(A(x)\to B(x))\To \E xA(x)\to \E xB(x)$
+\end{enumerate}
+取个体域为全体自然数
+$A(x):x$是偶数，$B(x):x$是奇数，代入1，2，此时右端为真左端为假
 \end{document}
