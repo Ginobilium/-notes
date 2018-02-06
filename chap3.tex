@@ -1,0 +1,77 @@
+\ifx\allfiles\undefined
+\documentclass{book}
+\usepackage{ctex}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[mathscr]{eucal}
+\newcommand{\Eqv}{\Leftrightarrow}
+\newcommand{\eqv}{\leftrightarrow}
+\newcommand{\To}{\Rightarrow}
+\newcommand{\A}{\forall}
+\newcommand{\E}{\exists}
+\newcommand{\no}{\varnothing}
+\newcommand{\scr}[1]{\mathscr{#1}}
+\newcommand{\nsubset}{\not\subset}
+\begin{document}
+\else
+\chapter{集合恒等式及其证明}
+\fi
+\section{集合恒等式}
+\noindent
+关于$\cap, \cup$
+\begin{enumerate}
+    \item 幂等律\quad $A\cup A=A, A\cap A=A$
+    \item 交换律\quad $A\cup B=B\cup A, A\cap B=B\cap A$
+    \item 结合律\quad $(A\cup B)\cup C)=A\cup (B\cup C)$
+    \item 分配律\quad $A\cup (B\cap C)=(A\cup B)\cap (A\cup C)$ 
+    \item 吸收律\quad $A\cup (A\cap B)=A, A\cap (A\cup B)=A$
+\end{enumerate}
+关于$\sim$
+\begin{enumerate}
+    \item 双重否定律\quad $\sim\sim A=A$
+    \item 德摩根律\quad $\sim (A\cup B)=\sim A\cap \sim B, \sim (A\cap B)=\sim A\cup \sim B$
+\end{enumerate}
+关于$E, \no$
+\begin{enumerate}
+    \item 零律\quad $A\cup E=E, A\cap\no=\no$
+    \item 同一律\quad $A\cup\no=A, A\cap E=A$
+    \item 排中律\quad $A\cup\sim A=E$
+    \item 矛盾律\quad $A\cap\sim A=\no$
+    \item 全补律\quad $\sim\no=E,\sim E=\no$
+    \item 补交转换律\quad $A-B=A\cap\sim B$
+\end{enumerate}
+推广到集族
+\begin{enumerate}
+    \item 分配律\quad $B\cup (\bigcap\{A_\alpha\}_{\alpha\in A})=\bigcap_{\alpha\in S}(B\cup A_\alpha)$\\
+        $B\cap (\bigcup\{A_\alpha\}_{\alpha\in S}=\bigcup_{\alpha\in S}(B\cap A_\alpha)$
+     \item 德摩根律 $\sim (\bigcup\{A_\alpha\}_{\alpha\in S})=\bigcap_{\alpha\in S}(\sim A_\alpha)$\\
+        $\sim (\bigcap\{A_\alpha\}_{\alpha\in S})=\bigcup_{\alpha\in S}(\sim S_\alpha)$\\
+        $B-(\bigcup\{A_\alpha\}_{\alpha\in S})=\bigcap_{\alpha\in S}(B-A_\alpha)$\\
+        $B-(\bigcap\{A_\alpha\}_{\alpha\in S})=\bigcup_{\alpha\in S}(B-A_\alpha)$
+\end{enumerate}
+\subsection{对偶原理}
+\noindent
+对偶式：一个集合关系式，如果只含有$\cap,\cup,\sim,\no,E,=,\subseteq$，那么同时把$\cup$与$\cap$互换，把$\no$与$E$互换，把$\subseteq$与$\supseteq$互换，得到的式子称为原式的对偶式。\\
+对偶原理：对 偶式同真假，或者说，集合恒等式的对偶式还是恒等式。
+\section{半形式化证明} 
+\subsection{逻辑演算法} 
+证明$A=B$:
+\begin{align*}
+    &\A x,\\
+    &x\in A\\
+    \Eqv&\dots \mbox{(定义，逻辑等值式)}\\
+    \Eqv&\dots\quad (\dots)\\
+    \Eqv&x\in B\\
+    &\therefore A=B
+\end{align*}  
+例子:$A\cup (B\cap C)=(A\cup B)\cap (A\cup C)$
+\begin{align*} 
+&\A x\\
+&x\in A\cup (B\cap C)\\
+\Eqv&x\in A\lor (x\in B\land x\in C)\\
+
+\end{align*}
+\ifx\allfiles\undefined
+\end{document}
+\fi
+
