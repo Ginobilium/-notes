@@ -68,9 +68,83 @@
 \begin{align*} 
 &\A x\\
 &x\in A\cup (B\cap C)\\
-\Eqv&x\in A\lor (x\in B\land x\in C)\\
-
+\Eqv&x\in A\lor (x\in B\land x\in C)\quad\mbox{$\cup$与$\cap$的定义}\\
+\Eqv&(x\in A\lor x\in B)\land (x\in A\lor x\in C)\quad\mbox{命题逻辑分配律}\\
+\Eqv&x\in A\cup B\land x\in A\cup C\quad\mbox{$\cup$定义}\\
+\Eqv&x\in (A\cup B)\land x\in (A\cup C)\quad\mbox{$\cap$定义}\\
+&\therefore A\cup (B\cap C)=(A\cup B)\cap (A\cup C)
 \end{align*}
+\subsection{集合演算法}
+\noindent
+吸收律的证明
+\begin{align*}
+&A\cup (A\cap B)\\
+=&(A\cap E)\cup (A\cap B)\quad\mbox{同一律}\\
+=&A\cap (E\cup B)\quad\mbox{分配律}\\
+=&A\cap E\quad\mbox{零律}\\
+=&A\quad\mbox{同一律}\\
+&\therefore A\cup (A\cap B)=A
+\end{align*}
+德摩根律相对形式的证明
+\begin{align*}
+&A-(B\cup C)\\
+=&A\cap\sim (B\cup C)\quad\mbox{补交转换律}\\
+=&A\cap(\sim B\cap\sim C)\quad\mbox{德摩根律}\\
+=&(A\cap A)\cap (\sim B\cap\sim C)\quad\mbox{幂等律}\\
+=&(A\cap\sim B)\cap (A\cap\sim C)\quad\mbox{交换律结合律}\\
+=&(A-B)\cap (A-C)\quad\mbox{补交转换律}
+\end{align*}
+\section{其它集合恒等式}
+\subsection{$\oplus$的性质}
+\begin{enumerate}
+    \item 交换律：$A\oplus B=B\oplus A$
+    \item 结合律：$A\oplus (B\oplus C)=(A\oplus B)\oplus C$\\
+        分解成基本单位，例如：$A\cap\sim B\cap\sim C,\quad A\cap B\cap\sim C,\quad A\cap B\cap C,\quad\sim A\cap\sim B\cap\sim C$\\
+        证明：\\
+        首先：
+        \begin{align*}
+            A\oplus B&=(A-B)\cup (B-A)\quad\mbox{$\oplus$定义}\\
+            &=(A\cap\sim B)\cup (B\cap\sim A)\quad\mbox{补交转换律}\\
+            &=(A\cap\sim B)\cup(\sim A\cap B)\quad\mbox{$\cap$交换律}\\
+        \end{align*}
+        其次：
+        \begin{align*}
+            &A\oplus (B\oplus C)\\
+            =&(A\cap\sim(B\oplus C))\cup (\sim A\cap (B\oplus C))\\
+            =&(A\cap\sim ((B\cap\sim C)\cup (\sim B\cap C)))\cup\\
+            &(\sim A\cap ((B\cap\sim C)\cup (\sim B\cap C)))\\
+            =&(A\cap (\sim (B\cap\sim C)\cap\sim (\sim B\cap C)))\cup\\
+            &(\sim A\cap ((B\cap\sim C)\cup (\sim B\cap C)))\quad\mbox{德摩根律}\\
+            =&(A\cap (\sim (B\cap\sim C)\cap\sim (\sim B\cap C)))\cup\\
+            &(\sim A\cap ((B\cap\sim C)\cup (\sim B\cap C)))\\
+            =&(A\cap (\sim B\cup C)\cap (B\cup\sim C))\cup (\sim A\cap ((B\cap\sim C)\cup (\sim B\cap C)))\\
+            =&(A\cap B\cap C)\cup (A\cap\sim B\cap\sim C)\cup (\sim A\cap B\cap\sim C)\cup (\sim A\cap\sim B\cup\sim C)
+        \end{align*}
+        同理：
+        \begin{align*}
+           &(A\oplus B)\oplus C\\
+           =&((A\oplus B)\cap\sim C)\cup (\sim (A\oplus B)\cap C)\\
+           =&(((A\cap\sim B)\cup (\sim A\cap B))\cap\sim C)\cup (\sim ((A\cap\sim B)\cup (\sim A\cap B))\cap C)\\
+           =&(((A\cap\sim B)\cup (\sim A\cap B))\cap\sim C)\cup ((\sim (A\cap\sim B)\cap\sim (\sim A\cap B))\cap C)\\
+           =&(A\cap\sim B\cap\sim C)\cup (\sim A\cap B\cap\sim C)\cup (\sim A\cap\sim B\cap C)\cup (A\cap B\cap C)\\
+           &\therefore A\oplus\left( B\oplus C \right)=\left( A\oplus B \right)\oplus C
+        \end{align*}
+
+    \item 分配律：$A\cap (B\oplus C)=(A\cap B)\oplus (A\cap C)$
+    \item 消去律：$A\oplus B=A\oplus C\Eqv B=C$\\
+        $A=B\oplus C\Eqv B=A\oplus C\Eqv C=A\oplus B$
+    \item 对称差与补：$\sim\left( A\oplus B \right)=\sim A\oplus B=A\oplus\sim B$\\
+        $A\oplus B=\sim A\oplus\sim B$
+\end{enumerate}
+\subsection{特征函数与集合运算}
+\begin{enumerate}
+    \item $\chi_{A\cap B}(x)=\chi_A(x)*\chi_B(x)$
+    \item $\chi_{\sim A}(x)=1-\chi_A(x)$
+    \item $\chi_{A-B}(x)=\chi_A(x)\left( 1-\chi_B(x) \right)$
+    \item $\chi_{A\cup B}(x)=\chi_{(A-B)\cup B}(x)=\chi_A(x)+\chi_B(x)-\chi_A(x)*\chi_B(x)$
+    \item $\chi_{A\oplus B}(x)=\chi_A(x)+\chi_B(x)(\mod 2)=\chi_A(x)\oplus\chi_B(x)$
+\end{enumerate}
+\subsection{集族的性质}
 \ifx\allfiles\undefined
 \end{document}
 \fi
