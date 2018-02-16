@@ -145,6 +145,29 @@
     \item $\chi_{A\oplus B}(x)=\chi_A(x)+\chi_B(x)(\mod 2)=\chi_A(x)\oplus\chi_B(x)$
 \end{enumerate}
 \subsection{集族的性质}
+\begin{enumerate}
+    \item $\scr{A}\subseteq\scr{B}\To\bigcup\scr{A}\subseteq\bigcup\scr{B}$
+    \item $\scr{A}\in\scr{B}\To\scr{A}\subseteq\bigcup\scr{B}$
+    \item $(A\neq\no)\land\scr{A}\subseteq\scr{B}\To\bigcap\scr{B}\subseteq\bigcap\scr{A}$
+    \item $\scr{A}\in\scr{B}\To\bigcap\scr{B}\subseteq\scr{A}$
+    \item $\scr{A}\neq\no\To\bigcap\scr{A}\subseteq\scr{A}$
+\end{enumerate}
+证明：$\scr{A}\subseteq\scr{B}\To\bigcup\scr{A}\subseteq\bigcup\scr{B}$
+\begin{align*}
+    &\A x,\\
+    &x\in\bigcup\scr{A}\\
+    \Eqv&\E A(A\in\scr{A}\land x\in A)\quad\bigcup\scr{A}\mbox{定义}\\
+    \To&\E A(A\in \scr{B}\land x\in A)\quad\mbox{已知}\scr{A}\subseteq\scr{B}\\
+    \Eqv&x\in\bigcup\scr{B}\quad\bigcup\scr{B}\mbox{定义}\\
+    &\therefore \bigcup\scr{A}\subseteq\bigcup\scr{B}
+\end{align*}
+证明：$\scr{A}\subseteq\scr{B}\To\scr{A}\subseteq\bigcup\scr{B}$
+\begin{align*}
+    &\A x,\\
+    &x\in\scr{A}\\
+    \To&\scr{A}\in\scr{B}\land x\in\scr{A}\quad\mbox{$scr{A}\in\scr{B}$合取}\\
+    \To&\E A(A\in\scr{B}\land\x\in A)
+\end{align*}
 \ifx\allfiles\undefined
 \end{document}
 \fi
