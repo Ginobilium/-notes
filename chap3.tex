@@ -1,4 +1,3 @@
-\ifx\allfiles\undefined
 \documentclass{book}
 \usepackage{ctex}
 \usepackage{amsmath}
@@ -13,9 +12,7 @@
 \newcommand{\scr}[1]{\mathscr{#1}}
 \newcommand{\nsubset}{\not\subset}
 \begin{document}
-\else
 \chapter{集合恒等式及其证明}
-\fi
 \section{集合恒等式}
 \noindent
 关于$\cap, \cup$
@@ -166,9 +163,7 @@
     &\A x,\\
     &x\in\scr{A}\\
     \To&\scr{A}\in\scr{B}\land x\in\scr{A}\quad\mbox{$scr{A}\in\scr{B}$合取}\\
-    \To&\E A(A\in\scr{B}\land\x\in A)
+    \To&\E A(A\in\scr{B}\land x\in A)
 \end{align*}
-\ifx\allfiles\undefined
 \end{document}
-\fi
 
